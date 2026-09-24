@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Chiromancie — Lis les lignes de ta main</title>
+<meta name="description" content="Prends ta paume en photo et découvre une lecture chiromantique complète : cœur, tête, vie, destinée." />
+
+<!-- Icône / apparence "app" quand ajoutée à l'écran d'accueil -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232B1B3D%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22>✋</text></svg>">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#2B1B3D">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stars" aria-hidden="true"></div>
+
+<main class="app">
+
+  <!-- ÉCRAN 1 : accueil / capture -->
+  <section id="screen-capture" class="screen">
+    <p class="eyebrow">chiromancie</p>
+    <h1>Ta main a<br><em>une histoire</em> à raconter</h1>
+    <p class="lede">Prends ta paume en photo. Une lecture guidée de tes lignes de cœur, de tête, de vie et de destinée t'attend.</p>
+
+    <div class="capture-zone" id="capture-zone">
+      <img id="preview-img" alt="" hidden>
+      <div id="capture-placeholder" class="capture-placeholder">
+        <span class="hand-icon">✋</span>
+        <span>Prends ta main en photo</span>
+      </div>
+    </div>
+
+    <input type="file" id="file-input" accept="image/*" capture="environment" hidden>
+
+    <button class="btn-primary" id="btn-choose">Prendre une photo</button>
+    <button class="btn-secondary" id="btn-analyze" hidden>Révéler ma lecture</button>
+
+    <p class="hint">Photo bien éclairée, paume ouverte, doigts écartés.</p>
+  </section>
+
+  <!-- ÉCRAN 2 : chargement -->
+  <section id="screen-loading" class="screen" hidden>
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="loading-text">Lecture de tes lignes en cours…</p>
+  </section>
+
+  <!-- ÉCRAN 3 : résultat -->
+  <section id="screen-result" class="screen" hidden>
+    <div class="result-header">
+      <img id="result-thumb" alt="">
+      <div>
+        <h2>Ta lecture 🔮</h2>
+        <p id="trial-badge" class="trial-badge" hidden>🎁 Première lecture offerte</p>
+      </div>
+    </div>
+
+    <div class="reading-card free">
+      <p id="free-text"></p>
+    </div>
+
+    <div class="reading-wrap">
+      <div class="reading-card paid" id="paid-card">
+        <p id="paid-text"></p>
+      </div>
+
+      <div class="paywall" id="paywall">
+        <span class="lock">🔒</span>
+        <h3>Débloquer la suite</h3>
+        <p>Ligne de Tête, Ligne de Vie, Ligne de Destinée et la Synthèse complète.</p>
+        <button class="btn-primary" id="btn-unlock">Débloquer — 1,99 €</button>
+        <button class="btn-link" id="btn-restore">Restaurer mon achat</button>
+      </div>
+    </div>
+
+    <button class="btn-secondary" id="btn-restart">Nouvelle lecture</button>
+  </section>
+
+  <!-- Message d'erreur -->
+  <p id="error-box" class="error-box" hidden></p>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
